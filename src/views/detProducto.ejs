@@ -1,0 +1,78 @@
+<%- include('partials/header.ejs')%>
+
+<div class="container">
+  <div class="banner"> </div>
+  <div class="list-menu"> 
+   <label for="">Nuestra Linea de vinos </label>
+   </div>  
+</div> 
+  <section class="article-back">
+  <div class="card" style="max-width: 600px;">
+   <div class="row">
+     <div class="col-md-3">
+      <img id="img-det" class=" rounded mx-auto mt-1 d-block m-2  p-2" style="width: 12rem; " src="../../images/upload/<%= products.image.path %>" alt="">
+     </div>
+     <div class="col-md-7 m-4 p-2">
+       <div class="card-body center">
+      
+         <h3 class="card-title"><%= products.name  %></h3>
+         <h4 class="card-title" ><strong><%= products.cepas.name  %></strong></h4> 
+         <h5 class="card-text"><%= products.description  %></h4>
+            <br><br><br>
+         <span>Precio: </span>
+         <span class="price"> $ <%= products.price  %></span> 
+         <span>Cantidad</span>
+         <select id="unit-cant" name="unit_cant" class="unit-cant">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        
+         </select>   <br><br><br>
+         <small>Tarjeta de Debito/Credito hasta en 3 cuotas sin interes</small>
+            <br> 
+                     
+            <br><br><br><br><br>
+            <div class="d-flex justify-content-end m-2">
+               <a href="/"><button class="btn btn-secundary m-2"  type="button"> Volver</button></a> 
+               <button value="Comprar" class="btn btn-success m-2" type="button"> <i class="fas fa-cart-plus" size= "2px"></i> Comprar</button>               
+            </div>  
+       </div>
+     </div>
+   </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+      <article class="article-card-h">
+      
+      </article>  
+   </section>
+</div>
+
+
+
+
+<%- include('partials/footer.ejs')%>
+</html>

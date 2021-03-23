@@ -1,0 +1,64 @@
+<%- include('partials/header.ejs')%>
+<div class="container">
+   <div class="login">
+      <h2>Registro de Usuario</h2>  
+      <br>  
+    <% if (typeof errors!= 'undefined') { %>
+        <p style="color:red"> Verifique los ERRORES</p>
+        <% } %> 
+       
+      <section>
+         <form class='formulario' action="/administrador/registerAdmin" method="POST">
+            
+             <small class="errores">
+               <%= (typeof errors !='undefined' && errors.apellido) ? errors.apellido.msg : '' %>
+            </small>
+            <div class='inputForm'>
+                 <i class="fa fa-user icon"></i>    
+                 <input id="apellido" name="apellido" type="text" placeholder="Apellido"value=<%= (typeof old != 'undefined' && !errors.apellido) ? old.apellido : '' %>>
+             </div>
+        
+             <small class="errores">
+                <%= (typeof errors !='undefined' && errors.nombre) ? errors.nombre.msg : '' %>
+            </small>
+             <div class='inputForm'>
+                 <i class="fa fa-user icon"></i>    
+                 <input id="nombre" name="nombre" type="text" placeholder='Nombre'value=<%= (typeof old != 'undefined' && !errors.nombre) ? old.nombre : '' %>>
+             </div>
+               
+             <small class="errores">
+                <%= (typeof errors !='undefined' && errors.email) ? errors.email.msg : '' %>
+            </small>
+             <div class='inputForm'>
+                 <i class="fas fa-envelope icon"></i>    
+                 <input id="email" name="email" type="email" placeholder="Ingrese su Email" value=<%= (typeof old != 'undefined' && !errors.email) ? old.email : '' %>>
+             </div>
+             
+             <small class="errores">
+                <%= (typeof errors !='undefined' && errors.pasword) ? errors.pasword.msg : '' %>
+            </small>
+             <div class='inputForm'>
+                 <i class="fas fa-key icon"></i>
+                 <input id="password" name="pasword" type="password" placeholder="Contraseña">
+             </div>             
+                        <select id="select" name="select">
+                            <option value="1">Administrador</option>
+                            <option value="0">Cliente</option>
+                          </select> 
+                 <br>
+                                               
+             
+             <div>
+                 <input class="terminos" type="checkbox" required> <small> Acepto terminos y condiciones   </small>
+               </div>
+             <div class="buttons">
+                 <button class='btn btn-secondary btn-lg' type="reset" value='limpiar'>Borrar</button>
+                 <button class='btn btn-success btn-lg' type="submit" value='cargaDatos'>Registrar</button>
+             </div> 
+         </form>
+     
+     </input>
+     </section>
+   </div>
+</div>   
+<%- include('partials/footer.ejs')%>

@@ -1,0 +1,21 @@
+Crear Nuevo Repo Local
+git init
+git config user.name "mcaresano"
+git config user.email "mcaresano@gmail.com"
+git clone https://github.com/mcaresano/vinoteca.git
+
+Descargar Actualizaciones
+git pull https://github.com/mcaresano/vinoteca.git
+
+Subir Actualizaciones
+git add .
+git commit -m "Actualizando readMe"
+git push origin master
+
+
+Consultar
+
+git status		// Muestra los archivos y su estado
+git log			// Registra el historial de cambios del proyecto
+git log –oneline	// Muestra el Historial en una sola linea
+git --version		// Muestra la version de Git Instalada
