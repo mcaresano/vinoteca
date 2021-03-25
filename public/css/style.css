@@ -20,9 +20,6 @@
 
 body {
    font-family: Roboto, Arial, Helvetica, sans-serif;
-   /*background-image: url("../images/backgroundBl.jpg");
-   background-repeat: no-repeat;
-   background-size: cover;*/
    background-color:#d3d3d3;
    display: flex;
    flex-wrap:wrap;
@@ -176,7 +173,8 @@ body {
 .article{
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  box-sizing: content-box;
   align-content: center;
   align-self: stretch;
   align-items: stretch;
@@ -261,6 +259,8 @@ body {
 
 .article-back{
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
   align-content: center;
   padding: 10px;
   align-self: center;
@@ -446,7 +446,7 @@ width: 100%;
 
 .form-profile{
   display: flex;
-  box-sizing: border-box;
+  box-sizing: content-box;
   flex-wrap: wrap;
   flex-direction: column;
   width: 60%;

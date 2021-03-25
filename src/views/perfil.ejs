@@ -10,12 +10,11 @@
       <section class="article-back">
         <form  action="/users/register" method="POST" enctype="multipart/form-data">
            <div class="card" style="max-width: 600px;">
-              <div class="row">
-                 <div class="col-md-3">
+            <div class="row center">
+              <div class="col-sm-2">
                     <img id="img-det" class=" rounded mx-auto mt-1 d-block m-2  p-2" style="width: 12rem; " src="../../images/upload/<%= usuario.avatar %>" alt="">
-                 </div>
               </div>
-              <div class="col-md-7 m-4 p-2">
+              <div class="col-sm-8 ">
                  <div class="card-body center">
                      <div class='form-group col-md-10 ml-2'>
                         <i class="fa fa-user icon"></i>   
@@ -36,7 +35,7 @@
                 
                      <div class="form-group col-md-10 ml-2 ">
                         <i class="far fa-image"></i>
-                        <label type="text" for="imagen">Imagen de perfil (Si selecciona una nueva imagen reemplazara la actual)</label>
+                        <label type="text" for="imagen">(Si selecciona una nueva imagen reemplazara la actual)</label>
                         <input type="file" class="form-control-file border" id="imagen"name="imagen">
                         <small class="errores ">
                             <%= (typeof errors !='undefined' && errors.imagen) ? errors.imagen.msg : '' %>
@@ -64,13 +63,14 @@
                     </div>    
                     
                     <div class="d-flex justify-content-center">
-                        <button class='btn btn-info mr-5' type="reset" value='limpiar'>Editar</button>
-                        <button class='btn btn-danger mr-5' type="reset" value='limpiar'>Borrar</button>
-                        <button class='btn btn-success ml-5' type="submit" value='cargaDatos' hidden>Registrar</button>
+                     <a href="/products"><button class="btn btn-secundary m-2 btn-lg"  type="button"><i class="fas fa-undo-alt"></i> Volver</button></a> 
+                     <button class='btn btn-success btn-lg m-2 ' type="submit" value='cargaDatos'><i class="fas fa-user-tag"></i> Actualizar</button>
+                        
                     </div>
                  </div>
               </div>
-           </div>
+            </div>
+            </div>
         </form>
      </section>
   </div>

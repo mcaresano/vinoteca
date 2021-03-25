@@ -2,8 +2,21 @@
 /*  Elementos del Footer  */
 
 footer{
-    flex-wrap: wrap;
+    display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
     width: 100%;
-    background-color: black;
+    background-color:black;
+    flex: 0 0 auto;
   }
+  
+  .f-imagen {
+    padding: 2%;
+    width: 20%;
+    height: auto;
+  }
+
+  .footer-imagen{
+    width: 100%;
+  }
+ 
