@@ -2,21 +2,46 @@
 /*  Elementos del Footer  */
 
 footer{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    width: 100%;
-    background-color:black;
-    flex: 0 0 auto;
-  }
-  
-  .f-imagen {
-    padding: 2%;
-    width: 20%;
+  margin-top: 15px;
+  background-color:black;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
+  color: aliceblue;
+}
+
+.container-footer{
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  max-width: 99%;
+  background-color: black;
+  justify-content:space-around;
+}
+
+footer h3{
+  text-shadow: aliceblue;
+  font-weight:300;
+ 
+}
+footer a{
+  color: lightgray
+}
+
+.f-imagen {
+    padding: 5px;
+     width: 30%;
     height: auto;
   }
 
   .footer-imagen{
     width: 100%;
+  }
+
+  .icon {
+      font-size: 40px;
+      padding: 2%;
   }
  
