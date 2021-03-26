@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const validacion = require ("../middelwares/validacion");
+const validarUsuario = require ("../middelwares/validarUsuario");
 
 const usersControllers = require ('../controllers/usersControllers')
 
@@ -26,7 +26,7 @@ var storage = multer.diskStorage({
 router.get('/login', usersControllers.login);
 router.post('/login', usersControllers.logueado);
 router.get('/register', usersControllers.register);
-//router.post('/register',validacion, upload.any(), usersControllers.crear);
+//router.post('/register',validarUsuario, upload.any(), usersControllers.crear);
 router.post('/register', upload.any(), usersControllers.crear);
 router.get('/profile/:id', usersControllers.profile);
 router.post('/profile/:id', upload.any(), usersControllers.actualizar, usersControllers.logueado);
