@@ -1,0 +1,22 @@
+Controles (Back y front)
+	usuarios
+		apellido  (no null, minimo 4 caracteres)
+		nombre (nu null, minimo 4 caracteres)
+		email	(formato email)
+		clave (no null, minimo 6 caracteres)
+		avatar (no null, ver tamaño)
+
+
+	productos
+		nombre (no null, minimo 4 caracteres)
+		descripcion (no null, minimo 4 caracteres)
+		cepa (no null)
+		precio (no null, minimo 3 caracteres)
+	
+
+perfiles
+	admin 1
+		habilita link "Admin de usuarios" para poder cambiar los permisos de administrador
+		habilita menu ventas
+	admin 0
+		habilita menu carrito (Compras)

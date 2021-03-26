@@ -7,16 +7,16 @@
         <p style="color:red"> Verifique los ERRORES</p>
         <p style="color:red"> <%= (typeof errors !='undefined') ? errors.msg : '' %></p>
         <% } %>           
-      <section class="article-back">
-        <form  action="/users/register" method="POST" enctype="multipart/form-data">
-           <div class="card" style="max-width: 600px;">
-            <div class="row center">
-              <div class="col-sm-2">
-                    <img id="img-det" class=" rounded mx-auto mt-1 d-block m-2  p-2" style="width: 12rem; " src="../../images/upload/<%= usuario.avatar %>" alt="">
+      <div class="user-back">
+        <form  action="" method="POST" enctype="multipart/form-data">
+           <div class="card">
+         
+              <div class="perfil-image">
+                    <img id="img-det" class="" style="width: 12rem; " src="../../images/upload/<%= usuario.avatar %>" alt="">
               </div>
-              <div class="col-sm-8 ">
-                 <div class="card-body center">
-                     <div class='form-group col-md-10 ml-2'>
+              <div class="m-3">
+                      <input id="id" name="id" type="text" placeholder=""value=<%= usuario.id %> hidden>
+                      <div class='form-group col-md-10 ml-2'>
                         <i class="fa fa-user icon"></i>   
                         <label for="apellido">Apellido</label> 
                         <input class="form-control border" id="apellido" name="apellido" type="text" placeholder=""value=<%= usuario.apellido %>>
@@ -35,28 +35,17 @@
                 
                      <div class="form-group col-md-10 ml-2 ">
                         <i class="far fa-image"></i>
-                        <label type="text" for="imagen">(Si selecciona una nueva imagen reemplazara la actual)</label>
+                        <label type="text" for="imagen">(Si Selecciona una nueva imagen reemplazará la actual)</label>
                         <input type="file" class="form-control-file border" id="imagen"name="imagen">
                         <small class="errores ">
                             <%= (typeof errors !='undefined' && errors.imagen) ? errors.imagen.msg : '' %>
                         </small>
                      </div>
-                    
-                
-                     <div class='form-group col-md-10 ml-2'>
-                        <i class="fas fa-envelope icon"></i>
-                        <label for="email">Email</label>     
-                        <input class="form-control border" id="email" name="email" type="email" placeholder="email" style="font-style:italic" value=<%= usuario.email %>>
-                        <small class="errores ">
-                            
-                        </small>
-                     </div>
-                    
-                
-                    <div class='form-group col-md-10 ml-2' >
+                       
+                    <div class='form-group col-md-10 ml-2' >   
                         <i class="fas fa-key icon"></i>
                         <label for="pasword">Contraseña</label> 
-                        <input class="form-control border" id="password" name="pasword" type="password" placeholder="*****" style="font-style:italic">
+                        <input class="form-control border" id="password" name="pasword" type="password" placeholder="No valida aun" style="font-style:italic">
                         <small class="errores">
                             <%= (typeof errors !='undefined' && errors.pasword) ? errors.pasword.msg : '' %>
                         </small>
@@ -64,15 +53,15 @@
                     
                     <div class="d-flex justify-content-center">
                      <a href="/products"><button class="btn btn-secundary m-2 btn-lg"  type="button"><i class="fas fa-undo-alt"></i> Volver</button></a> 
-                     <button class='btn btn-success btn-lg m-2 ' type="submit" value='cargaDatos'><i class="fas fa-user-tag"></i> Actualizar</button>
+                     <button class='btn btn-success btn-lg m-2 ' type="submit" value='actualizaDatos' onclick="location.reload()"><i class="fas fa-user-tag"></i> Actualizar</button>
                         
                     </div>
                  </div>
-              </div>
-            </div>
+         
+        
             </div>
         </form>
-     </section>
+     </div>
   </div>
 </div>   
 <%- include('partials/footer.ejs')%>

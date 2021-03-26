@@ -1,22 +1,30 @@
 <%- include('partials/header.ejs')%>
 <div class="container">
-    <div class="login">
-    <h2>Ingreso de usuario</h2>
-        <section>
-            <form class='formulario' action="/users/login" method="POST">
-                <div class='inputForm'>
-                    <i class="fas fa-envelope icon"></i>    
-                    <input id="email" name="email" type="email" placeholder="Ingrese su Email">
-                </div>
-                <div class='inputForm'>
-                    <i class="fas fa-key icon"></i>
-                    <input id="password" name="pasword" type="password" placeholder="Contraseña">
-                </div>
-                <button class='submit' type="submit" value='Ingresar'>Ingresar</button>
-            </form>
-            <a href="#">Recuperar Contraseña</a></small>
-            <a href="./register">Registrarse</a></small>
-        </section>
-    </div> 
+   <div class="form form-abm">
+      <h2>Ingreso de usuario</h2>
+      <div class="card">
+         <form class='formulario' action="/users/login" method="POST">
+            <div class='form-group col-md-10 ml-2 mt-2'>
+                <i class="fas fa-envelope icon"></i>
+                <label for="email"> Email</label>     
+                <input class="form-control border" id="email" name="email" type="email" placeholder="" style="font-style:italic" value=<%= (typeof old != 'undefined' && !errors.email) ? old.email : '' %>>
+           </div>
+            
+           <div class='form-group col-md-10 ml-2 mt-2'>
+                <i class="fas fa-key icon"></i>
+                <label for="email">Clave de acceso</label>     
+                <input class="form-control border" id="pasword" name="pasword" type="password" placeholder="" style="font-style:italic" value=<%= (typeof old != 'undefined' && !errors.email) ? old.email : '' %>>
+           </div>
+           <div class="d-flex justify-content-center">
+                <a href="/"><button class="btn btn-secundary m-2 btn-lg"  type="button"><i class="fas fa-undo-alt"></i> Cerrar</button></a> 
+                <button class='btn btn-success m-2 btn-lg' type="submit" value='Ingresar'>Ingresar</button>
+            </div> 
+            <div class="form-group col-md-10 ml-2 mt-2">     
+                <a href="#">Recuperar Contraseña</a> <br>
+                <a href="./register">Registrarse</a>
+            </div>
+        </form>
+      
+   </div>
 </div>
 <%- include('partials/footer.ejs')%>   

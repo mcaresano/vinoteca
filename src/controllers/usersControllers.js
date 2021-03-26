@@ -62,11 +62,44 @@ module.exports ={
   profile: (req, res)=>{
     db.Usuarios.findByPk(req.params.id)
     .then(usuario=>{ 
-      //return res.send(usuario)
        return res.render ('perfil', {usuario :usuario});
     })
-  }  
- }
+  },
+  
+  actualizar: (req,res )=>{
+  
+    if (req.files.length >0){
+      db.Usuarios.update({
+      apellido :req.body.apellido,
+      nombre : req.body.nombre,       
+      avatar : req.files[0].filename,
+      }, { where : {id : req.params.id}
+      }).then (()=>{
+        db.Usuarios.findByPk(req.params.id)
+         .then(usuario=>{ 
+          req.session.usuarioLogueado = {
+            id: usuario.id,
+            nombre: usuario.nombre,
+            admin: usuario.administrador,
+            avatar : usuario.avatar
+            }
+      
+       return res.render ('perfil', {usuario :usuario});
+    })})
+  }else{
+    db.Usuarios.update({
+      apellido :req.body.apellido,
+      nombre : req.body.nombre,       
+      }, { where : {id : req.params.id}
+      }).then (usuario=>{ 
+        req.session.usuarioLogueado = {
+          id: usuario.id,
+          nombre: usuario.nombre,
+          }
+          return res.render ('perfil', {usuario :usuario});
+  })}
+  }
+}
     
     
 

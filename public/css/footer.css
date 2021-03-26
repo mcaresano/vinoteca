@@ -4,12 +4,16 @@
 footer{
   margin-top: 15px;
   background-color:black;
-  width: 100%;
+  width: 99%;
   display: flex;
   flex-wrap: wrap;
   flex: 0 0 auto;
   color: aliceblue;
-}
+  align-self: flex-end;
+  position:fixed;
+  bottom: 0;
+  width: 100%;
+   }
 
 .container-footer{
   margin-top: 10px;
@@ -19,6 +23,7 @@ footer{
   max-width: 99%;
   background-color: black;
   justify-content:space-around;
+  align-self: flex-end;
 }
 
 footer h3{
@@ -40,7 +45,7 @@ footer a{
     width: 100%;
   }
 
-  .icon {
+  .footer-icon {
       font-size: 40px;
       padding: 2%;
   }

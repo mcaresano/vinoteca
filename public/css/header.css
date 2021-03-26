@@ -23,7 +23,7 @@
   }
 
   .imagen {
-    width: 7%;
+    width: 8%;
     height: auto;
   }
 
@@ -45,6 +45,6 @@
 
   .cart{
     text-decoration: none;
-    color: gray;
+    color:lightgray;
     
   }

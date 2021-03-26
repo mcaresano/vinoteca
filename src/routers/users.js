@@ -29,6 +29,8 @@ router.get('/register', usersControllers.register);
 //router.post('/register',validacion, upload.any(), usersControllers.crear);
 router.post('/register', upload.any(), usersControllers.crear);
 router.get('/profile/:id', usersControllers.profile);
+router.post('/profile/:id', upload.any(), usersControllers.actualizar, usersControllers.logueado);
+
 
 
 module.exports = router;
