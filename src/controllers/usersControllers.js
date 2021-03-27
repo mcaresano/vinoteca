@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../dataBase/models')
 const bcrypt= require ('bcrypt');
-let{ckeck,validationResult,body, check}= require('express-validator');
+const {validationResult}= require('express-validator');
 const session = require('express-session');
 
 
@@ -12,20 +12,27 @@ module.exports ={
     },
   
   logueado: function(req,res){
-       db.Usuarios.findOne({where:{email: req.body.email}})
-          .then((usuario)=>{
-            if(bcrypt.compareSync(req.body.pasword, usuario.pasword)){
-                req.session.usuarioLogueado = {
-                  id: usuario.id,
-                  nombre: usuario.nombre,
-                  admin: usuario.administrador,
-                  avatar : usuario.avatar
-                  }
-                  //return res.send(req.session)
-                  res.redirect ('/');
-          }else {return  res.redirect('login');}
-          })},
-
+    let errors = validationResult (req);
+        
+    if(errors.isEmpty()){
+            db.Usuarios.findOne({where:{email: req.body.email}})
+                  .then((usuario)=>{
+                    if(bcrypt.compareSync(req.body.pasword, usuario.pasword)){
+                        req.session.usuarioLogueado = {
+                          id: usuario.id,
+                          nombre: usuario.nombre,
+                          admin: usuario.administrador,
+                          avatar : usuario.avatar
+                          }
+                          res.redirect ('/');
+                  }else {return  res.redirect('login');}
+                  })
+    } else {
+            //res.send (errors.mapped());
+            res.render('login', {errors: errors.mapped()});
+    }
+  },
+              
   register: function(req, res) {
         res.render('register')         
     },

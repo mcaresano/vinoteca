@@ -5,7 +5,7 @@ const multer = require('multer');
 const path = require ('path');
 const metodhOverride = require ('method-override');
 const administrador = require ("../middelwares/administrador")
-//const validarProductos = require ("../middelwares/validarProductos");
+const validarProductos = require ("../validations/validarProductos");
 const productsController = require('../controllers/productsController');
 const { Router } = require('express');
 

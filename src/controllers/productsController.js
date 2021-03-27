@@ -1,5 +1,5 @@
 const db = require ('../dataBase/models');
-let{ckeck,validationResult,body, check}= require('express-validator');
+let{ validationResult}= require('express-validator');
 
 module.exports ={
    newProduct:(req, res)=>{
@@ -9,23 +9,28 @@ module.exports ={
          })
         },
 
-   createProduct : (req,res)=>{
-        db.Image.create({
-        path: req.files[0].filename
-       }).then ((data)=>{
-        db.Product.create({
-        name :req.body.nombre,
-        description : req.body.descripcion,    
-        id_cepa : req.body.cepa,
-        price : req.body.precio,
-        id_img: data.id
-           })
-       }).then (()=>{
-        res.redirect ('/products');
-       })
-       
+  createProduct : (req,res)=>{
+    const errors = validationResult(req);
     
-    },
+    if (errors.isEmpty()){
+       
+        db.Image.create({
+           path: req.files[0].filename
+        }).then ((data)=>{
+            db.Product.create({
+                name :req.body.nombre,
+                description : req.body.descripcion,    
+                id_cepa : req.body.cepa,
+                price : req.body.precio,
+                id_img: data.id
+            })
+        }).then (()=>{
+            res.redirect ('/products');
+        })
+    } else {
+           res.render ('productNew', {errors:errors.mapped()});
+               }             
+  },
 
   edit:(req, res)=>{
        let products = db.Product.findByPk(req.params.id, {include :[{association: "cepas"},{association: "image"}]})
