@@ -5,6 +5,7 @@ const validarUsuario = require ("../middelwares/validarUsuario");
 const generalController = require('../controllers/generalControllers')
 const admin = require("../middelwares/administrador")
 
+
 router.get('/', generalController.home);
 router.get('/logout', generalController.logout)
 router.get('/administrador',admin,adminController.Admin);

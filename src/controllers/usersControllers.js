@@ -84,7 +84,8 @@ module.exports ={
             avatar : usuario.avatar
             }
       
-       return res.render ('perfil', {usuario :usuario});
+       //return res.render ('perfil', {usuario :usuario});
+       return res.redirect('/')
     })})
   }else{
     db.Usuarios.update({
@@ -96,7 +97,9 @@ module.exports ={
           id: usuario.id,
           nombre: usuario.nombre,
           }
-          return res.render ('perfil', {usuario :usuario});
+          //return res.render ('perfil', {usuario :usuario});
+       return res.redirect('/')
+          
   })}
   }
 }

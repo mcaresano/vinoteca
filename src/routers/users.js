@@ -3,12 +3,10 @@ const router = express.Router();
 const validarUsuario = require ("../middelwares/validarUsuario");
 
 const usersControllers = require ('../controllers/usersControllers')
-
-
 const multer = require('multer');
 const path = require ('path');
 const metodhOverride = require ('method-override');
-
+const {check, body}= require ('express-validator');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
