@@ -1,6 +1,13 @@
 /***************************/
 /*  Elementos del Header   */
 
+header{
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+
   .btn-search {
     right: 0 ;
   }
@@ -23,7 +30,7 @@
   }
 
   .imagen {
-    width: 8%;
+    width: 7%;
     height: auto;
   }
 
@@ -38,9 +45,8 @@
 
 }
 
-
   .avatar{
-    max-width: 30px;
+    max-width: 20px;
   }
 
   .cart{

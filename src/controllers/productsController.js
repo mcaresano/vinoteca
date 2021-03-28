@@ -10,9 +10,8 @@ module.exports ={
         },
 
   createProduct : (req,res)=>{
-    const errors = validationResult(req);
-    
-    if (errors.isEmpty()){
+  
+    if (req.files!==[]){
        
         db.Image.create({
            path: req.files[0].filename
@@ -28,7 +27,8 @@ module.exports ={
             res.redirect ('/products');
         })
     } else {
-           res.render ('productNew', {errors:errors.mapped()});
+           alert("Debe ingresar una imagen");
+               
                }             
   },
 

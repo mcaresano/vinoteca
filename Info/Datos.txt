@@ -1,0 +1,10 @@
+Acceso
+
+Usuarios logueados 
+administrador : u:messi@gmail.com p:123456
+cliente: u:sofia@gmail.com p:123456
+
+Ubicacion de Imagenes a cargar
+vinos: public/images/img-vinos
+users: public/images/img-user
+ 

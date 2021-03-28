@@ -1,67 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head.ejs')%>
+<body>
 <%- include('partials/header.ejs')%>
-<div class="container">
-     
-   <div class="form form-profile">
-      <h2>Detalle de Usuario</h2>        
-    <% if (typeof errors!= 'undefined') { %>
-        <p style="color:red"> Verifique los ERRORES</p>
-        <p style="color:red"> <%= (typeof errors !='undefined') ? errors.msg : '' %></p>
-        <% } %>           
+
+<div class="container-lg">
+   <div class="form form-abm-edit-user">
+      <% if (typeof errors!= 'undefined') { %>
+         <p style="color:red"> Verifique los ERRORES</p>
+         <p style="color:red"> <%= (typeof errors !='undefined') ? errors.msg : '' %></p>
+      <% } %>           
       <div class="user-back">
-        <form  action="" method="POST" enctype="multipart/form-data">
-           <div class="card">
-         
-              <div class="perfil-image">
-                    <img id="img-det" class="" style="width: 12rem; " src="../../images/upload/<%= usuario.avatar %>" alt="">
-              </div>
-              <div class="m-3">
-                      <input id="id" name="id" type="text" placeholder=""value=<%= usuario.id %> hidden>
-                      <div class='form-group col-md-10 ml-2'>
-                        <i class="fa fa-user icon"></i>   
-                        <label for="apellido">Apellido</label> 
-                        <input class="form-control border" id="apellido" name="apellido" type="text" placeholder=""value=<%= usuario.apellido %>>
-                        <small class="errores">
-                           <%= (typeof errors !='undefined' && errors.apellido) ? errors.apellido.msg : '' %>
-                        </small>
-                     </div>
-                     <div class='form-group col-md-10 ml-2'>
-                        <i class="fa fa-user icon"></i>
-                        <label for="nombre">Nombre</label>     
-                        <input class="form-control border" id="nombre" name="nombre" type="text" placeholder=''value=<%= usuario.nombre %>>
-                        <small class="errores">
-                            <%= (typeof errors !='undefined' && errors.nombre) ? errors.nombre.msg : '' %>
-                        </small>
-                     </div>
-                
-                     <div class="form-group col-md-10 ml-2 ">
-                        <i class="far fa-image"></i>
-                        <label type="text" for="imagen">(Si Selecciona una nueva imagen reemplazará la actual)</label>
-                        <input type="file" class="form-control-file border" id="imagen"name="imagen">
-                        <small class="errores ">
-                            <%= (typeof errors !='undefined' && errors.imagen) ? errors.imagen.msg : '' %>
-                        </small>
-                     </div>
-                       
-                    <div class='form-group col-md-10 ml-2' >   
-                        <i class="fas fa-key icon"></i>
-                        <label for="pasword">Contraseña</label> 
-                        <input class="form-control border" id="password" name="pasword" type="password" placeholder="No valida aun" style="font-style:italic">
-                        <small class="errores">
-                            <%= (typeof errors !='undefined' && errors.pasword) ? errors.pasword.msg : '' %>
-                        </small>
-                    </div>    
-                    
-                    <div class="d-flex justify-content-center">
-                     <a href="/products"><button class="btn btn-secundary m-2 btn-lg"  type="button"><i class="fas fa-undo-alt"></i> Volver</button></a> 
+         <form  action="" method="POST" enctype="multipart/form-data">
+            <div class="h1 text-center "> 
+               <label for="">Mi Perfil</label>
+            </div>   
+            <div class="card-body">
+               <div class="perfil-image text-center">
+                  <img id="img-det" class="" style="width: 14rem; " src="../../images/upload/<%= usuario.avatar %>" alt="">
+               </div>
+               <div class="m-3">
+                  <input id="id" name="id" type="text" placeholder=""value=<%= usuario.id %> hidden>
+                  <div class='form-group col-md-10 ml-2'>
+                     <i class="fa fa-user icon"></i>   
+                     <label for="apellido">Apellido</label> 
+                     <input class="form-control border" id="apellido" name="apellido" type="text" placeholder=""value=<%= usuario.apellido %>>
+                     <small class="errores">
+                        <%= (typeof errors !='undefined' && errors.apellido) ? errors.apellido.msg : '' %>
+                     </small>
+                  </div>
+                  <div class='form-group col-md-10 ml-2'>
+                     <i class="fa fa-user icon"></i>
+                     <label for="nombre">Nombre</label>     
+                     <input class="form-control border" id="nombre" name="nombre" type="text" placeholder=''value=<%= usuario.nombre %>>
+                     <small class="errores">
+                        <%= (typeof errors !='undefined' && errors.nombre) ? errors.nombre.msg : '' %>
+                     </small>
+                  </div>
+                  <div class="form-group col-md-10 ml-2 ">
+                     <i class="far fa-image"></i>
+                     <label type="text" for="imagen">(una nueva imagen reemplazará la actual)</label>
+                     <input type="file" class="form-control-file border" id="imagen"name="imagen">
+                     <small class="errores ">
+                        <%= (typeof errors !='undefined' && errors.imagen) ? errors.imagen.msg : '' %>
+                     </small>
+                  </div>
+                  <div class='form-group col-md-10 ml-2' >   
+                     <i class="fas fa-key icon"></i>
+                     <label for="pasword">Contraseña</label> 
+                     <input class="form-control border" id="password" name="pasword" type="password" placeholder="No valida aun" style="font-style:italic">
+                     <small class="errores">
+                        <%= (typeof errors !='undefined' && errors.pasword) ? errors.pasword.msg : '' %>
+                     </small>
+                  </div>    
+                  <div class="d-flex justify-content-center">
+                     <a href="/products"><button class="btn btn-danger m-2 btn-lg"  type="button"><i class="fas fa-undo-alt"></i> Cancelar</button></a> 
                      <button class='btn btn-success btn-lg m-2 ' type="submit" value='actualizaDatos' onclick="location.reload()"><i class="fas fa-user-tag"></i> Actualizar</button>
-                        
-                    </div>
-                 </div>
-         
-        
+                  </div>
+               </div>
             </div>
-        </form>
-     </div>
-  </div>
+         </form>
+      </div>
+   </div>
 </div>   
+
+
 <%- include('partials/footer.ejs')%>
+</body>
+</html>

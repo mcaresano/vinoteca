@@ -108,6 +108,12 @@ module.exports ={
        return res.redirect('/')
           
   })}
+  },
+  list: (req, res)=>{
+    db.Usuarios.findAll()
+                .then((usuarios)=>{
+                res.render('AdminUsuarios',{usuarios:usuarios});
+            })
   }
 }
     

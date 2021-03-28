@@ -29,6 +29,6 @@ router.post('/register', upload.any(), usersControllers.crear);
 router.get('/profile/:id', usersControllers.profile);
 router.post('/profile/:id', upload.any(), usersControllers.actualizar, usersControllers.logueado);
 
-
+router.get('/list', usersControllers.list);
 
 module.exports = router;
