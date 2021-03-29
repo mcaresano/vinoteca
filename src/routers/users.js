@@ -3,6 +3,7 @@ const router = express.Router();
 const validarUsuario = require ("../middelwares/validarUsuario");
 const validarLogin = require ("../validations/validarLogin");
 const usersControllers = require ('../controllers/usersControllers')
+const administrador = require ("../middelwares/administrador")
 const multer = require('multer');
 const path = require ('path');
 const metodhOverride = require ('method-override');
@@ -29,6 +30,6 @@ router.post('/register', upload.any(), usersControllers.crear);
 router.get('/profile/:id', usersControllers.profile);
 router.post('/profile/:id', upload.any(), usersControllers.actualizar, usersControllers.logueado);
 
-router.get('/list', usersControllers.list);
+router.get('/list', administrador, usersControllers.list);
 
 module.exports = router;

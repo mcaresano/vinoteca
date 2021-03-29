@@ -27,12 +27,12 @@ router.get('/',administrador,productsController.listaProductos);
 //router.get ('/', productsController.listaProductos); 
 router.get('/detail/:id', productsController.detProducto);
 
-router.get('/newProduct', productsController.newProduct);
-router.post('/newProduct', upload.any(), productsController.createProduct);
+router.get('/newProduct', administrador, productsController.newProduct);
+router.post('/newProduct',administrador,  upload.any(), productsController.createProduct);
 
-router.get('/edit/:id', productsController.edit);
-router.post('/edit/:id', upload.any(),productsController.update);
+router.get('/edit/:id', administrador, productsController.edit);
+router.post('/edit/:id', administrador, upload.any(),productsController.update);
 
-router.post('/delete/:id', productsController.delete);
+router.post('/delete/:id',administrador,  productsController.delete);
 
 module.exports = router;

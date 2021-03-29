@@ -72,7 +72,7 @@ body {
 /********************************************/
 
   .container{
-    height: 100%;
+    height: 90%;
     max-height: 100%;
     justify-content: space-around;
   }
@@ -346,6 +346,23 @@ width: 100%;
 
 
 /*  LOGIN Y REGISTER */
+
+.form-abm{
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 40%;
+  padding: 1rem;
+  margin: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  background-color: whitesmoke;
+  border-radius: 10px;
+
+}
+
 
 .form-abm-new{
   display: flex;
