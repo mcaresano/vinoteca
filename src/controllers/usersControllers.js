@@ -75,39 +75,30 @@ module.exports ={
   
   actualizar: (req,res )=>{
   
-    if (req.files.length >0){
-      db.Usuarios.update({
-      apellido :req.body.apellido,
-      nombre : req.body.nombre,       
-      avatar : req.files[0].filename,
-      }, { where : {id : req.params.id}
-      }).then (()=>{
-        db.Usuarios.findByPk(req.params.id)
-         .then(usuario=>{ 
-          req.session.usuarioLogueado = {
-            id: usuario.id,
-            nombre: usuario.nombre,
-            admin: usuario.administrador,
-            avatar : usuario.avatar
-            }
-      
-       //return res.render ('perfil', {usuario :usuario});
-       return res.redirect('/')
-    })})
-  }else{
-    db.Usuarios.update({
-      apellido :req.body.apellido,
-      nombre : req.body.nombre,       
-      }, { where : {id : req.params.id}
-      }).then (usuario=>{ 
+   var imagen;
+   if (req.files.length >0){
+    imagen = req.files[0].filename;
+   }else {
+    imagen = req.body.avatarActual;
+   }
+
+   db.Usuarios.update({
+    apellido :req.body.apellido,
+    nombre : req.body.nombre,       
+    avatar : imagen,
+    }, { where : {id : req.params.id}
+    }).then (()=>{
+      db.Usuarios.findByPk(req.params.id)
+       .then(usuario=>{ 
         req.session.usuarioLogueado = {
           id: usuario.id,
           nombre: usuario.nombre,
+          admin: usuario.administrador,
+          avatar : usuario.avatar
           }
-          //return res.render ('perfil', {usuario :usuario});
-       return res.redirect('/')
-          
-  })}
+      return res.redirect('/')
+        })
+      })
   },
   list: (req, res)=>{
     db.Usuarios.findAll()

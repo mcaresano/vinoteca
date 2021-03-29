@@ -399,17 +399,17 @@ width: 100%;
 
 .form-abm-edit-user{
   display: flex;
-  box-sizing: border-box;
+  box-sizing: border-box; 
   flex-wrap: wrap;
   flex-direction: column;
-  width: 50%;
+  width: 80%;
   margin-top: 3rem;;
   padding: 1rem;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
   margin-bottom: 3rem;;
-  background-color: whitesmoke;
+  background-color: white;
   border-radius: 10px;
   
 }
@@ -638,7 +638,11 @@ perfil de Usuario
   justify-content: center;
 }
 
-
+.div-pass{
+  padding: 5px;
+  border: solid 1px lightgray;
+  border-radius: 8px;
+}
 
 
 

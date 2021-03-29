@@ -15,7 +15,7 @@
       <% for(i=0;i<products.length ;i++){ %>
          <div class="col-md-auto ">
             <div class="card zshadow-sm mb-1">
-               <a href="/products/<%= products[i].id %>"><img class=" rounded mx-auto mt-1 d-block" style="width: 4rem;"src="../images/upload/<%= products[i].image.path %>" alt=""></a>
+               <a href=""><img class=" rounded mx-auto mt-1 d-block" style="width: 4rem;"src="../images/upload/<%= products[i].image.path %>" alt=""></a>
                <div class="card-body justify-content-center ">
                   <h5 class="card-title text-center" href="/products/detail/<%= products[i].id %>"><%= products[i].name  %></h5>
                   <p class="text-center "><strong>  <%= products[i].cepas.name  %> </strong></p>
