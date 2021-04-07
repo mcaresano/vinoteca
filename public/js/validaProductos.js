@@ -13,7 +13,7 @@ form.addEventListener("submit", (e)=>{
         if (imagen == ""){
             errores.push("Debe seleccionar una imagen");
         } else { 
-            if (!(/\.(jpg|png|gif)$/i).test(imagen)) {
+            if (!(/\.(jpeg|jpg|png|gif)$/i).test(imagen)) {
                 errores.push('El archivo a adjuntar no es una imagen');
             }
         }

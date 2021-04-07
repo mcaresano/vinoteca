@@ -69,7 +69,6 @@ module.exports ={
        
    },
    
-
    detProducto: (req, res)=> {
     db.Product.findByPk(req.params.id, {include :[{association: "cepas"},{association: "image"}]
     })

@@ -10,8 +10,9 @@ const usersRouter = require('./routers/users');
 const cartRouter = require ('./routers/cart');
 const permisos = require ('./middelwares/permisos')
 
-let port = process.env.PORT || 5000;
+const apiProductsRouter = require ('./routers/api/productsRouter');
 
+let port = process.env.PORT || 5000;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,5 +31,6 @@ app.use('/users', usersRouter);
 app.use('/products',productsRouter);
 app.use('/cart',cartRouter);
 
+app.use ('/api/products', apiProductsRouter);
 
 app.listen (port, ()=> console.log(`conectado en puerto ${port}`));
