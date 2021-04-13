@@ -192,13 +192,15 @@ body {
 
 .article-back{
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  padding: 10px;
+  height: auto;
+  display: block;
+  flex-wrap: nowrap;
+  padding: 5px;
   align-self: center;
   justify-content: center;
-  display: flex;
+  border: 1px solid gray;
+  border-radius: 10px;
+ float: left;
 }
 
 .det-prod{
@@ -236,12 +238,29 @@ width: 100%;
 /**************************************************************/
 
 
-.card-img-det {
+
+
+.box {
   display: flex ; 
-  align-self: center;
-  justify-content: center;
+  flex-flow: column wrap;
+  align-content: center;
+  justify-content:center;
   max-width: 100%;
+  height: auto;
+  flex: content;
 }
+
+.box-text {
+  display: flex ; 
+  flex-flow: column wrap;
+  align-content: center;
+  justify-content:center;
+  max-width: 100%;
+  height: auto;
+  flex: content;
+  position: absolute;
+}
+
 
 
 
@@ -254,15 +273,14 @@ width: 100%;
   align-self: center;
   padding: 5px;
   justify-content: center;
+  position: absolute;
 }
 
 #img-det2 {
-  display: flex;
-  flex-wrap: wrap;
-  width: 75%;
-  align-self: center;
-  padding: 5px;
+  width: 100%;
+  height: auto;
   justify-content: center;
+  align-self: center;
 }
 
 .card-text {
@@ -381,8 +399,8 @@ width: 100%;
 }
 
 .form-abm-edit{
-  display: flex;
-  box-sizing: border-box;
+  display: flexbox;
+  box-sizing: content-box;
   flex-wrap: wrap;
   flex-direction: column;
   width: 60%;

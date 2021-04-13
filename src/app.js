@@ -10,6 +10,8 @@ const usersRouter = require('./routers/users');
 const cartRouter = require ('./routers/cart');
 const permisos = require ('./middelwares/permisos')
 
+
+
 const apiProductsRouter = require ('./routers/api/productsRouter');
 
 let port = process.env.PORT || 5000;
@@ -34,3 +36,11 @@ app.use('/cart',cartRouter);
 app.use ('/api/products', apiProductsRouter);
 
 app.listen (port, ()=> console.log(`conectado en puerto ${port}`));
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+});
