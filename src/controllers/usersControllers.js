@@ -40,7 +40,7 @@ module.exports ={
   crear: function (req, res) {
     console.log("ACA ESTA EL VALOR " + req.session.usuarioLogueado) 
     if( typeof req.session.usuarioLogueado != 'undefined'){ 
-      db.Usuarios.findOne({ where: { email : req.body.email } })
+      /* db.Usuarios.findOne({ where: { email : req.body.email } })
       .then(function(val){
         if(val !=null){
           res.render('register', {
@@ -48,7 +48,7 @@ module.exports ={
                 {msg: "Email ya registrado"},
             })
         }
-      })
+      }) */
       let errors = validationResult(req);
       
       if (errors.isEmpty()) {
