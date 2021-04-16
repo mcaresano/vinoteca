@@ -38,8 +38,36 @@ module.exports ={
     },
   
   crear: function (req, res) {
-   // return res.send (req.files);
-    db.Usuarios.findOne({ where: { email : req.body.email } })
+    console.log("ACA ESTA EL VALOR " + req.session.usuarioLogueado) 
+    if( typeof req.session.usuarioLogueado != 'undefined'){ 
+      db.Usuarios.findOne({ where: { email : req.body.email } })
+      .then(function(val){
+        if(val !=null){
+          res.render('register', {
+            errors:
+                {msg: "Email ya registrado"},
+            })
+        }
+      })
+      let errors = validationResult(req);
+      
+      if (errors.isEmpty()) {
+            db.Usuarios.create({
+              apellido :req.body.apellido,
+              nombre : req.body.nombre,       
+              email : req.body.email,
+              avatar : req.files[0].filename,
+              administrador : req.body.select,
+              pasword : bcrypt.hashSync(req.body.pasword,12),
+                }).then(function(user){
+                  res.redirect("/")
+                })
+            } 
+       else {
+        return res.render("register", { errors: errors.mapped(), old: req.body })
+      }
+    }else {
+      db.Usuarios.findOne({ where: { email : req.body.email } })
       .then(function(val){
         if(val !=null){
           res.render('register', {
@@ -64,6 +92,9 @@ module.exports ={
        else {
         return res.render("register", { errors: errors.mapped(), old: req.body })
       }
+    }
+
+    
       
   },
   profile: (req, res)=>{
