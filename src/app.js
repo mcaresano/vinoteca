@@ -9,12 +9,12 @@ const productsRouter = require('./routers/products');
 const usersRouter = require('./routers/users');
 const cartRouter = require ('./routers/cart');
 const permisos = require ('./middelwares/permisos')
-
-
-
-const apiProductsRouter = require ('./routers/api/productsRouter');
-
+const morgan = require ('morgan');
 let port = process.env.PORT || 5000;
+
+// Api
+const apiProductsRouter = require ('./routers/api/productsRouter');
+const apiUsersRouter = require ('./routers/api/usersRouter');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,20 +22,23 @@ app.set('view engine', 'ejs');
 
 app.use(session({secret:'un mensaje'}));
 app.use(vistaUsuario);
-app.use(express.json());
 
+app.use(express.json());
+app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(methodOverride('_method'));
 
+
+
+// routers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products',productsRouter);
 app.use('/cart',cartRouter);
 
 app.use ('/api/products', apiProductsRouter);
-
-app.listen (port, ()=> console.log(`conectado en puerto ${port}`));
+app.use ('/api/users', apiUsersRouter);
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -44,3 +47,9 @@ app.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
+
+
+// Server
+app.listen (port, ()=> console.log(`conectado en puerto ${port}`));
+
+
