@@ -56,7 +56,15 @@
                <small class="errores">
                   <%= (typeof errors !='undefined' && errors.pasword) ? errors.pasword.msg : '' %>
                </small>
-            </div>    
+            </div> 
+            <% if( typeof usuarioLogueado != 'undefined'){ %>
+               <select id="select" name="select">
+                  <option value="1">Administrador</option>
+                  <option value="0">Cliente</option>
+                </select> 
+                <br>
+                <br>
+            <% } %>    
              
             <div class="terminos custom-control custom-checkbox checkbox-xg">
                <input type="checkbox" required> 
