@@ -84,6 +84,7 @@ module.exports ={
                 res.render('products',{products: products});
             })
     },
+
 }
 
 

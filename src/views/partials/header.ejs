@@ -26,7 +26,7 @@
 
                   <li class="nav-item dropdown link">
                      <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="/images/upload/<%=locals.usuarioLogueado.avatar %>" style="width: 2rem" class="img-fluid rounded-bottom mr-2 avatar"> <%=locals.usuarioLogueado.nombre %>
+                        <img id="admin" src="/images/upload/<%=locals.usuarioLogueado.avatar %>" style="width: 2rem" class="img-fluid rounded-bottom mr-2 avatar"> <%=locals.usuarioLogueado.nombre %>
                      </a>
                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a href="/users/profile/<%= locals.usuarioLogueado.id %>"class="dropdown-item">Mi Perfil</a>
@@ -44,11 +44,10 @@
                   <li class="nav-item dropdown link">
                      <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img  src="" class=" rounded-bottom mr-2 avatar carrito-menu"> Mi Carrito
-                        <span class="badge badge-secondary badge-counter carrito-count">0</span>
+                        <span id="count-cart" class="badge badge-secondary badge-counter carrito-count">0</span>
                      </a>
                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a href="#"class="dropdown-item">Realizar Compra</a>
-                        <a href="#"class="dropdown-item">Ver Mis Productos</a>
+                        <a href="/cart"class="dropdown-item">Ver Productos</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Vaciar Carrito</a>
                      </div>
@@ -56,7 +55,7 @@
  
                   <li class="nav-item dropdown link">
                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img  src="/images/upload/<%=locals.usuarioLogueado.avatar %>" style="width: 2rem" class="img-fluid rounded-bottom mr-2 avatar"> <%=locals.usuarioLogueado.nombre %>
+                        <img id="cliente" src="/images/upload/<%=locals.usuarioLogueado.avatar %>" style="width: 2rem" class="img-fluid rounded-bottom mr-2 avatar"> <%=locals.usuarioLogueado.nombre %>
                      </a>
                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a href="/users/profile/<%= locals.usuarioLogueado.id %>"class="dropdown-item">Mi Perfil</a>

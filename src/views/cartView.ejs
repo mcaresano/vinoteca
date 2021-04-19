@@ -1,31 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head.ejs')%>
+<body>
 <%- include('partials/header.ejs')%>
+<div class="container-lg">  
+    <div class="banner"></div>   
+<div class="wrapper mt-4">
+   <div class="content-wrapper d-flex flex-column">
+      <div class="container-fluid p-5">
+         <div class="row">
+            <div class="col mb-4">						
+               <div class="card shadow mb-4">
+                  <div class="card-header py-3 d-flex justify-content-between">
+                    <spam class="m-0 font-weight-bold text-primary">Detalle de Carrito</spam> 
+                    <a href="/"class="m-0 font-weight-bold text-secondary mr-4">Volver al listado</a>  
+                  </div>
+                  <div class="card-body">
+                     <div class="table-responsive-sm">
+                         <table class="table">
+                            <tread>
+                                <tr>
+                                    <th scope="col">Cant</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Cepa</th>
+                                    <th scope="col">Precio Unitario</th>
+                                    <th scope="col">Precio Total</th>  
+                                    <th scope="col"> Borrar </th>
+                                </tr>
+                            </tread>
+                            <tbody>
+                                <% let cantidad = 0 ;  
+                                   let precioFinal = 0; 
+                                   for(i=0;i<products.length ;i++){ 
+                                      let precioParcial = 0;
+                                      cantidad += parseInt(products[i].cantidad);   
+                                      precioParcial = products[i].cantidad * products[i].precio 
+                                      precioFinal += precioParcial %>
+                                   
+                                <tr>
+                                     <td><%= products[i].cantidad %></td>  
+                                     <td><%= products[i].nombre  %></td>    
+                                     <td><%= products[i].cepa  %></td>    
+                                     <td><%= products[i].precio  %></td>
+                                     <td><%= precioParcial %> </td>    
+                                     <% %>
+                                     <td>   
+                                        <form action="/cart/delete/<%= products[i].id  %>" method="POST">
+                                           <button class="btn btn-danger btn.sm"  type="submit"> <i class="far fa-trash-alt"></i> Borrar</button>
+                                        </form>
+                                     </td>
+                                  </tr>
+                              <% } %>
+                            </tbody>
+                            <tread>
+                                <caption class="">Total de productos: <%= cantidad %></caption>
+                                <caption class="">Improte Total de la compra: $<%= precioFinal %></caption>
 
-    <section>
-        <article class="productoCarrito">
-            <div>
-                <img src="../images/cat-malbec.jpeg" width="150" height="150">
-            </div>
-            <div class="descripcionCarrito">Vino Catena Zapata - Malbec 2018</div>
-            <div>
-                <span class="price">$1500,00</span>
-                <small>C/u.</small>
-                <p>Eliminar</p>
-            </div>
-            
-        </article>
-    <br>
-    
-    <br>
+                            </tread>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>    
+         </div>
+      </div>
+    </div>
+</div>
 
-    </section>
-    <section>
-        <article class="confirmacionCompra">
-            <div>
-                <span class="price"> Total $1500,00</span>               
-                <input type="button" class="buy-button" value="Comprar">
-            </div>            
-        </article>
-    </section>
+
+
+
+
+
+
 
 
 

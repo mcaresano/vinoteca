@@ -12,17 +12,16 @@
       <% } %>           
       <div class="user-back">
          <form  action="" method="POST" enctype="multipart/form-data">
-            <div class="h1 text-center "> 
+            <div class="h5 text-center"> 
                <label for="">Mi Perfil</label>
             </div>   
-            <div class="form-group card-body">
-               <div class="perfil-image text-center">
-                  <input type="text" name="avatarActual" value="<%= usuario.avatar %>" hidden>
-                  <img id="img-det" name="avatar" class="" style="width: 20rem; " src="../../images/upload/<%= usuario.avatar %>" alt="">
-               </div>
-               <div class="m-3">
+            <div class="form-group card">
+               <input type="text" name="avatarActual" value="<%= usuario.avatar %>" hidden>
+               <img id="img-det" name="avatar" class="card-img-top" style="width: 15rem; " src="../../images/upload/<%= usuario.avatar %>" alt="">
+             
+               <div class="Form-group card-body">
                   <input id="id" name="id" type="text" placeholder=""value=<%= usuario.id %> hidden>
-                  <div class='form-group col-md-10 ml-2'>
+                  <div class='form-group row-md-10 ml-2'>
                      <i class="fa fa-user icon"></i>   
                      <label for="apellido">Apellido</label> 
                      <input class="form-control border" id="apellido" name="apellido" type="text" placeholder=""value=<%= usuario.apellido %>>
@@ -30,7 +29,7 @@
                         <%= (typeof errors !='undefined' && errors.apellido) ? errors.apellido.msg : '' %>
                      </small>
                   </div>
-                  <div class='form-group col-md-10 ml-2'>
+                  <div class='form-group row-md-10 ml-2'>
                      <i class="fa fa-user icon"></i>
                      <label for="nombre">Nombre</label>     
                      <input class="form-control border" id="nombre" name="nombre" type="text" placeholder=''value=<%= usuario.nombre %>>
@@ -38,7 +37,7 @@
                         <%= (typeof errors !='undefined' && errors.nombre) ? errors.nombre.msg : '' %>
                      </small>
                   </div>
-                  <div class="form-group col-md-10 ml-2 ">
+                  <div class="form-group row-md-10 ml-2 ">
                      <i class="far fa-image"></i>
                      <label type="text" for="imagen">(una nueva imagen reemplazará la actual)</label>
                      <input type="file" class="form-control-file border" id="imagen"name="imagen">
@@ -47,11 +46,11 @@
                      </small>
                   </div>
                   
-                  <div class='form-group col-md-11 ml-2 div-pass' >   
+                  <div class='form-group row-md-11 ml-2 div-pass' >   
                      <div class="text-center mt-2 mb-2">
                      <small > * Complete los campos solo si desea cambiar su Contraseña    </small>
                      </div>
-                     <div class='form-group col-md-10 ml-2' >   
+                     <div class='form-group row-md-10 ml-2' >   
                         <i class="fas fa-key icon"></i>
                         <label for="pasword">Ingrese su Contraseña actual</label> 
                         <input class="form-control border" id="password" name="pasword" type="password" placeholder="No valida aun" style="font-style:italic">
@@ -59,7 +58,7 @@
                            <%= (typeof errors !='undefined' && errors.pasword) ? errors.pasword.msg : '' %>
                         </small>
                      </div>   
-                     <div class='form-group col-md-10 ml-2' >   
+                     <div class='form-group row-md-10 ml-2' >   
                         <i class="fas fa-key icon"></i>
                         <label for="pasword">Ingrese su nueva Contraseña</label> 
                         <input class="form-control border" id="password" name="pasword" type="password" placeholder="No valida aun" style="font-style:italic">

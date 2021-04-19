@@ -1,4 +1,3 @@
-
 let form = document.querySelector ("form.formulario");
 
 form.addEventListener("submit", (e)=>{

@@ -99,16 +99,6 @@ body {
 
 /* select Index */
   
-.selectVariedades{
-  padding: 5px;
-  color:black;
-  font-style: italic bold;
-  border-radius: 5px;
-  box-sizing: content-box;
-  align-self: center;
-  justify-content: center;
-}
-
 .list-menu{
   display: flex;
   padding: 10px;  
@@ -268,12 +258,12 @@ width: 100%;
 
 #img-det {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 60%;
   align-self: center;
   padding: 5px;
-  justify-content: center;
-  position: absolute;
+  justify-content: flex-start;
+  position: relative;
 }
 
 #img-det2 {
@@ -320,10 +310,7 @@ width: 100%;
   font-size: 20px;
  }
 
- #unit-cant{
-   font-size: 20px;
-   color: black;
- }
+
 
  .buttons-buy {
   height: 20%; 
@@ -637,17 +624,11 @@ perfil de Usuario
 .user-back{
   background-color: whitesmoke;
   display: flexbox;
-  width: 60%;
+  width: 40%;
   align-self: center;
- 
   justify-content: center;
-  /*
-  flex-wrap: wrap;
-  
-  
-  
   border-radius: 10px;
-  */
+ 
 }
 
 .perfil-image{

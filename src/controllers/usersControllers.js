@@ -17,18 +17,19 @@ module.exports ={
     if(errors.isEmpty()){
             db.Usuarios.findOne({where:{email: req.body.email}})
                   .then((usuario)=>{
-                    if(bcrypt.compareSync(req.body.pasword, usuario.pasword)){
-                        req.session.usuarioLogueado = {
+                    console.log(bcrypt.compareSync(req.body.pasword, usuario.pasword));
+                    if(bcrypt.compareSync(req.body.pasword, usuario.pasword) == true ){
+                      req.session.usuarioLogueado = {
                           id: usuario.id,
                           nombre: usuario.nombre,
                           admin: usuario.administrador,
                           avatar : usuario.avatar
                           }
                           res.redirect ('/');
-                  }else {return  res.redirect('login');}
+                  }else {
+                   return  res.redirect('login');}
                   })
     } else {
-            //res.send (errors.mapped());
             res.render('login', {errors: errors.mapped()});
     }
   },
@@ -125,7 +126,8 @@ module.exports ={
           id: usuario.id,
           nombre: usuario.nombre,
           admin: usuario.administrador,
-          avatar : usuario.avatar
+          avatar : usuario.avatar,
+          cart: []
           }
       return res.redirect('/')
         })
