@@ -1,7 +1,19 @@
-const {check,validationResult,body}= require('express-validator');
+const { check, validationResult, body } = require ("express-validator");
+const bcrypt= require ('bcrypt');
+const db = require("../database/models")
 
 module.exports = [
-    check('email').isEmail().withMessage("ingrese un Email"),
-    check('pasword').isLength({min:6}).withMessage('Ingrese su Clave correctamente'),
-    check('pasword').isNumeric({min:6}).withMessage('Ingrese su Clave correctamente'),
-  ]
+    body("email").custom(function(value, {req}){
+        return db.Usuarios.findAll({where:{email:value}})
+        .then(function(usuario){
+          if(usuario[0] == undefined){
+            return Promise.reject("Email no registrado. !!Registrate!!");
+          }else{
+              if(bcrypt.compareSync(req.body.pasword, usuario[0].pasword) == false ){
+                return Promise.reject("La contraseña es incorrecta");
+              }
+          }
+        })
+      }),
+      check("pasword").isLength({min: 8}).withMessage("La contraseña debe contener al menos 8 caracteres")
+]

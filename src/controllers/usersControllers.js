@@ -12,13 +12,12 @@ module.exports ={
     },
   
   logueado: function(req,res){
-    let errors = validationResult (req);
-        
+    let errors = validationResult(req);
     if(errors.isEmpty()){
-            db.Usuarios.findOne({where:{email: req.body.email}})
-                  .then((usuario)=>{
-                    console.log(bcrypt.compareSync(req.body.pasword, usuario.pasword));
-                    if(bcrypt.compareSync(req.body.pasword, usuario.pasword) == true ){
+          db.Usuarios.findOne({where:{email: req.body.email}})
+              .then((usuario)=>{   
+                
+                  if(bcrypt.compareSync(req.body.pasword, usuario.pasword) == true ){
                       req.session.usuarioLogueado = {
                           id: usuario.id,
                           nombre: usuario.nombre,
@@ -26,12 +25,13 @@ module.exports ={
                           avatar : usuario.avatar
                           }
                           res.redirect ('/');
-                  }else {
-                   return  res.redirect('login');}
-                  })
-    } else {
-            res.render('login', {errors: errors.mapped()});
-    }
+                  }
+                
+              })
+    }else{
+      return res.render("login", { errors: errors.mapped() })
+    }  
+    
   },
               
   register: function(req, res) {
@@ -41,7 +41,7 @@ module.exports ={
   crear: function (req, res) {
     console.log("ACA ESTA EL VALOR " + req.session.usuarioLogueado) 
     if( typeof req.session.usuarioLogueado != 'undefined'){ 
-      /* db.Usuarios.findOne({ where: { email : req.body.email } })
+      db.Usuarios.findOne({ where: { email : req.body.email } })
       .then(function(val){
         if(val !=null){
           res.render('register', {
@@ -49,7 +49,7 @@ module.exports ={
                 {msg: "Email ya registrado"},
             })
         }
-      }) */
+      })
       let errors = validationResult(req);
       
       if (errors.isEmpty()) {
