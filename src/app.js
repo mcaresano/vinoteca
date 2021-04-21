@@ -10,7 +10,7 @@ const usersRouter = require('./routers/users');
 const cartRouter = require ('./routers/cart');
 const permisos = require ('./middelwares/permisos')
 const morgan = require ('morgan');
-let port = process.env.PORT || 5000;
+let port = process.env.PORT || 3000;
 
 // Api
 const apiProductsRouter = require ('./routers/api/productsRouter');
