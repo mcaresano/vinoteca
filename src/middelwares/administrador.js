@@ -1,5 +1,5 @@
 
-const db = require('../dataBase/models');
+const db = require('../database/models');
 module.exports = function(req,res,next){
      
     if(typeof req.session.usuarioLogueado =="undefined"){

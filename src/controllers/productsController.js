@@ -1,4 +1,4 @@
-const db = require ('../dataBase/models');
+const db = require ('../database/models');
 let{ validationResult}= require('express-validator');
 
 module.exports ={
