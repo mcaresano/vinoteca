@@ -15,5 +15,5 @@ module.exports = [
           }
         })
       }),
-      check("pasword").isLength({min: 8}).withMessage("La contraseña debe contener al menos 8 caracteres")
+      check("pasword").isLength({min: 6}).withMessage("La contraseña debe contener al menos 6 caracteres")
 ]

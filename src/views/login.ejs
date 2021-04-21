@@ -9,25 +9,28 @@
       <h2>Ingreso de usuario</h2>
       <div class="card">
          <form class='formulario' action="/users/login" method="POST">
-            <small style="color: red ; font-size: 20px;">
-               <%= (typeof errors != 'undefined' && errors.email) ? errors.email.msg : "" %> 
-            </small>
+            
               <div class='form-group col-md-10 ml-2 mt-2'>
                <i class="fas fa-envelope icon"></i>
                <label for="email"> Email</label>     
                <input class="form-control border" id="email" name="email" type="email" placeholder="" style="font-style:italic" value=<%= (typeof old != 'undefined' && !errors.email) ? old.email : '' %>>
-              
-            </div>
+             </div>
           
             
             <div class='form-group col-md-10 ml-2 mt-2'>
                <i class="fas fa-key icon"></i>
                <label for="email">Clave de acceso</label>     
                <input class="form-control border" id="pasword" name="pasword" type="password" placeholder="" style="font-style:italic" value=<%= (typeof old != 'undefined' && !errors.email) ? old.email : '' %>>
+               
             </div>
-            <small style="color: red">
-               <%= (typeof errors != 'undefined' && errors.pasword) ? errors.pasword.msg : "" %> 
+           <div class='form-group col-md-10 ml-2 mt-2'>
+            <small style="color: red ; font-size: 12px;">
+               <%= (typeof errors != 'undefined' && errors.email) ? errors.email.msg : "" %> <br>
             </small>
+            <small style="color: red; font-size: 12px;">
+               <%= (typeof errors != 'undefined' && errors.pasword) ? errors.pasword.msg : "" %> 
+            </small>  
+           </div>
             <div class="d-flex justify-content-center">
                <a href="/"><button class="btn btn-secundary m-2 btn-lg"  type="button"><i class="fas fa-undo-alt"></i> Cerrar</button></a> 
                <button class='btn btn-success m-2 btn-lg' type="submit" value='Ingresar'>Ingresar</button>

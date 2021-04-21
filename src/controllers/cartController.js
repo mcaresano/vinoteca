@@ -12,6 +12,7 @@ module.exports = {
     cartAdd : function (req, res){
         
         var arrayProducts = [];
+
         var product = {
             id:req.params.id,
             nombre: req.body.nombre,
@@ -19,37 +20,53 @@ module.exports = {
             cantidad: req.body.cantidad,
             precio: req.body.price
         };
-              
+        // return res.send("cart " + req.session.cart);
+        
         if (req.session.cart === undefined){
             arrayProducts.push(product); 
             req.session.cart = {arrayProducts};
           } else {
-            if (req.session.cart.arrayProducts.length > 0 ){
+            if (req.session.cart.arrayProducts.length >= 0 ){
             arrayProducts = req.session.cart.arrayProducts;
-            arrayProducts.push(product);
-            req.session.cart = {arrayProducts}
-           }
+            arrayProducts.push(product); 
+            req.session.cart = {arrayProducts};
+          }
+          
         }
         res.redirect ('/');   
-
-
-        /*
-       var arrayProduct = [];
-       var localStorageItems = res.locals.usuarioLogueado;
-
-       arrayProduct.push ([req.params.id, req.body.cantidad])
-        console.log (arrayProduct);
-        
-        if (localStorageItems ===null){
-            console.log ("Esta vacio");
-        }else {
-            console.log (localStorageItems);
-        }
-
-       */
-
-
-          
-   
     },   
+
+    cartDelete : function (req, res){
+        
+        
+       
+         var arrayProducts = [];
+        if (req.session.cart.arrayProducts.length > 0 ){
+            arrayProducts = req.session.cart.arrayProducts;
+            for (var i =0; i < arrayProducts.length; i++){
+                if (arrayProducts[i].id === req.params.id) {
+                    arrayProducts.splice(i,1);
+                }
+             }
+            req.session.cart = {arrayProducts};
+            res.redirect('/cart'); 
+        
+    }
+          
+    },   
+
+    cartEmpty : function (req, res){
+        if (req.session.cart === undefined){
+            
+        }  else{
+        var arrayProducts = [];
+         
+        if (req.session.cart.arrayProducts.length > 0 ){
+            req.session.cart = {arrayProducts};
+        }
+    }
+        res.redirect('/cart');
+    
+    },   
+
 }
