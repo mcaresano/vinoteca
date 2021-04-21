@@ -54,7 +54,7 @@ form.addEventListener("submit", (e)=>{
       for (let i = 0; i< errores.length; i++){
           ulErrores.innerHTML += "<li>" + errores[i] + "</li>"
       }
-    } else {
+    }/*  else {
             alert("Se ha cargado el Usuario - Ahora debe loguearse para ingresar");
-    }
+    } */
 })
